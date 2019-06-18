@@ -17,11 +17,11 @@ class MySQLKit
      */
     private function __construct()
     {
-        //TODO: cancel cons
+        //cancel construct
     }
     private function __clone()
     {
-        // TODO: cancel clone method
+        //cancel clone method
     }
 
     //单例模式
