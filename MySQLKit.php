@@ -26,12 +26,12 @@ class MySQLKit
         //cancel clone method
     }
 
-    //单例模式
+    //单例
     public static function getInstance($host, $user, $password): MySQLKit
     {
         if (!(self::$instance instanceof self)) {
             self::$instance = new self();
-            self::$instance->setHost($host)->setUser($user)->setPass($password)->connect();
+            self::$instance->setConnect($host,$user,$password)->connect();
         }
         return self::$instance;
     }
@@ -53,6 +53,10 @@ class MySQLKit
     //only use after connect
     public function setDB($db_name)
     {
+        if($this->SQL_LINK==null)
+        {
+            return false;
+        }
         $this->DBName = $db_name;
         $result = mysqli_select_db($this->SQL_LINK, $db_name);
         return $result;
@@ -76,8 +80,18 @@ class MySQLKit
         return $this;
     }
 
+    public function setConnect($host,$user,$pass)
+    {
+        $this->setHost($host)->setUser($user)->setPass($pass);
+        return $this;
+    }
+    //丢弃现有连接 建立新的连接
     public function connect()
     {
+        if($this->SQL_LINK!=null)
+        {
+            mysqli_close($this->SQL_LINK);
+        }
         $this->SQL_LINK = mysqli_connect($this->HOST, $this->USER, $this->PASS);
         if ($this->SQL_LINK) {
             //default utf-8
@@ -85,7 +99,9 @@ class MySQLKit
         }
     }
 
-    //same like connect, use this after change host, user or pass
+    /**
+     * @deprecated deprecated function
+     * */
     public function update()
     {
         $this->connect();

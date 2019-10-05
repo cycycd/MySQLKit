@@ -6,11 +6,7 @@
  * Time: 12:34
  */
 require_once("MySQLKit.php");
-$handler=new MySQLKit();
-echo $handler->setHost("localhost")
-    ->setUser("donate_adm")
-    ->setPass("donate123")
-    ->apply();
-$handler->setDB("donate_db");
-print_r($handler->sql_search("select * from donate_data"));
+$handler=MySQLKit::getInstance("localhost","root","");
+$res=$handler->search("show databases");
+print_r($res);
 //testsadasd
