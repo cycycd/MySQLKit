@@ -112,7 +112,7 @@ class MySQLKit
      * @param $sql_code
      * @return array|null
      */
-    function singleSearch($sql_code)
+    function searchSingle($sql_code)
     {
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
         $result = mysqli_fetch_array($raw);
@@ -124,6 +124,7 @@ class MySQLKit
      * @param $sql_code
      * @return array
      */
+    //返回查询数组
     function search($sql_code)
     {
         $i = 0;
@@ -138,7 +139,7 @@ class MySQLKit
         return $result_all;
     }
 
-    function exists($sql_code)
+    function searchExist($sql_code)
     {
         $res = $this->singleSearch($sql_code);
         if (empty($res)) {

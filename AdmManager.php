@@ -4,14 +4,18 @@
  * User: cycycd
  * Date: 2018/9/12
  * Time: 16:25
+ * @deprecated dep this class
  */
-
 class AdmManager
 {
     private $SQL_LINK;
     private $connect_status;
     private $user,$pass,$host;
     //must use root account
+    /**
+     * TO-DO
+     *
+     */
     public function __construct()
     {
         if (func_num_args()==3) {

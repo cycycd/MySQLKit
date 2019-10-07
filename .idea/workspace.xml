@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="finish main class">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="finish basic function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdmManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/AdmManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +101,10 @@
       <workItem from="1561464950504" duration="45000" />
       <workItem from="1562154818462" duration="1452000" />
       <workItem from="1563977110871" duration="20000" />
-      <workItem from="1570238447794" duration="2480000" />
+      <workItem from="1570238447794" duration="3380000" />
+      <workItem from="1570328984772" duration="607000" />
+      <workItem from="1570331685450" duration="112000" />
+      <workItem from="1570413421380" duration="264000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -244,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570238508290</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="finish basic function">
+      <created>1570241386600</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1570241386600</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +264,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -274,6 +285,7 @@
     <MESSAGE value="init(rename project)" />
     <MESSAGE value="change project structure" />
     <MESSAGE value="finish main class" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish main class" />
+    <MESSAGE value="finish basic function" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish basic function" />
   </component>
 </project>
