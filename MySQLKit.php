@@ -85,7 +85,7 @@ class MySQLKit
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
-    //丢弃现有连接 建立新的连接
+    //根据参数更新连接
     public function connect()
     {
         if($this->SQL_LINK!=null)
@@ -141,7 +141,7 @@ class MySQLKit
 
     function searchExist($sql_code)
     {
-        $res = $this->singleSearch($sql_code);
+        $res = $this->searchSingle($sql_code);
         if (empty($res)) {
             return false;
         } else {
@@ -157,6 +157,10 @@ class MySQLKit
             $this->setDB($DBName);
         }
         return $res;
+    }
+    function createTable($tableName)
+    {
+
     }
 
     // only execute and return flag, such as delete update and so on
