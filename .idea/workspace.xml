@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="fix function name">
-      <change afterPath="$PROJECT_DIR$/TableKit.php" afterDir="false" />
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="add TableKit class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
@@ -105,7 +104,9 @@
       <workItem from="1570238447794" duration="3380000" />
       <workItem from="1570328984772" duration="607000" />
       <workItem from="1570331685450" duration="112000" />
-      <workItem from="1570413421380" duration="1912000" />
+      <workItem from="1570413421380" duration="2675000" />
+      <workItem from="1570979973340" duration="653000" />
+      <workItem from="1571451583089" duration="1857000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -261,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570413755813</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add TableKit class">
+      <created>1570415419550</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1570415419550</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +303,7 @@
     <MESSAGE value="finish main class" />
     <MESSAGE value="finish basic function" />
     <MESSAGE value="fix function name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix function name" />
+    <MESSAGE value="add TableKit class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add TableKit class" />
   </component>
 </project>

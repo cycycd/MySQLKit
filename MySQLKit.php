@@ -27,11 +27,10 @@ class MySQLKit
     }
 
     //单例
-    public static function getInstance($host, $user, $password): MySQLKit
+    public static function getInstance(): MySQLKit
     {
         if (!(self::$instance instanceof self)) {
             self::$instance = new self();
-            self::$instance->setConnect($host,$user,$password)->connect();
         }
         return self::$instance;
     }
@@ -85,7 +84,7 @@ class MySQLKit
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
-    //根据参数更新连接
+    //断开旧连接 执行新的连接
     public function connect()
     {
         if($this->SQL_LINK!=null)
@@ -100,7 +99,7 @@ class MySQLKit
     }
 
     /**
-     * @deprecated deprecated function
+     * @deprecated deprecated function s
      * */
     public function update()
     {
@@ -149,6 +148,12 @@ class MySQLKit
         }
     }
 
+    /**
+     * @param $DBName
+     * @param bool $setThis
+     * @return bool|mysqli_result
+     * @deprecated
+     */
     function createDB($DBName, $setThis = true)
     {
         $SQL_CODE = "CREATE DATABASE if not exists " . $DBName . " CHARACTER SET 'utf8'COLLATE 'utf8_general_ci';";
@@ -158,6 +163,10 @@ class MySQLKit
         }
         return $res;
     }
+    /**
+     * @param $tableName
+     * @deprecated
+     */
     function createTable($tableName)
     {
 
