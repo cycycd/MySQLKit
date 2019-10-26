@@ -6,11 +6,11 @@
  * Time: 12:34
  */
 require_once("TableKit.php");
-$sql=MySQLKit::getInstance("","","");
-$sql->update();
-$tablekit=new TableKit();
-$tablekit->setName("testtable");
-$tablekit->addElement("id char(20) primary key")
+//$sql=MySQLKit::getInstance();
+//$sql->update();
+$tableKit=new TableKit();
+$tableKit->setName("testtable")
+    ->addElement("id char(20) primary key")
     ->addElement("name char(1)");
-$str=$tablekit->get();
+$str=$tableKit->get();
 echo $str;

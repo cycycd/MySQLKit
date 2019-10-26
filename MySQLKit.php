@@ -9,7 +9,7 @@
 //error_reporting(E_ALL^E_NOTICE^E_WARNING);
 class MySQLKit
 {
-    private $HOST, $USER, $PASS, $DBName;
+    private $HOST, $USER, $PASS;
     private $SQL_LINK;
     private static $instance;
 
@@ -26,7 +26,7 @@ class MySQLKit
         //cancel clone method
     }
 
-    //单例
+    //Singleton Pattern
     public static function getInstance(): MySQLKit
     {
         if (!(self::$instance instanceof self)) {
@@ -35,6 +35,9 @@ class MySQLKit
         return self::$instance;
     }
 
+    /**@deprecated
+     * @return mixed
+     */
     public function getLink()
     {
         return $this->SQL_LINK;
@@ -52,11 +55,10 @@ class MySQLKit
     //only use after connect
     public function setDB($db_name)
     {
-        if($this->SQL_LINK==null)
+        if($this->SQL_LINK==null||!$this->getConnectStatus())
         {
             return false;
         }
-        $this->DBName = $db_name;
         $result = mysqli_select_db($this->SQL_LINK, $db_name);
         return $result;
     }
@@ -78,13 +80,13 @@ class MySQLKit
         $this->PASS = $PASS;
         return $this;
     }
-
+    //setHost+setUser+setPass
     public function setConnect($host,$user,$pass)
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
-    //断开旧连接 执行新的连接
+    //dis old connect start new connect
     public function connect()
     {
         if($this->SQL_LINK!=null)
@@ -99,7 +101,7 @@ class MySQLKit
     }
 
     /**
-     * @deprecated deprecated function s
+     * @deprecated deprecated function
      * */
     public function update()
     {
@@ -147,6 +149,11 @@ class MySQLKit
             return true;
         }
     }
+    // only execute and return flag, such as delete update and so on
+    function execute($sql_code)
+    {
+        return mysqli_query($this->SQL_LINK, $sql_code);
+    }
 
     /**
      * @param $DBName
@@ -170,11 +177,5 @@ class MySQLKit
     function createTable($tableName)
     {
 
-    }
-
-    // only execute and return flag, such as delete update and so on
-    function execute($sql_code)
-    {
-        return mysqli_query($this->SQL_LINK, $sql_code);
     }
 }

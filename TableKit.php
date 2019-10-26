@@ -6,6 +6,7 @@ class TableKit{
     function setName($name)
     {
         $this->tableName=$name;
+        return $this;
     }
     function addElement($element)
     {
