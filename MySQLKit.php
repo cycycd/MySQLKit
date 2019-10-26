@@ -81,7 +81,7 @@ class MySQLKit
         return $this;
     }
     //setHost+setUser+setPass
-    public function setConnect($host,$user,$pass)
+    public function setHUP($host,$user,$pass)
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;

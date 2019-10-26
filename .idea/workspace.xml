@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="fix MySQLKit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="version alpha 0.1">
       <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TableKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/TableKit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +105,7 @@
       <workItem from="1570413421380" duration="2675000" />
       <workItem from="1570979973340" duration="653000" />
       <workItem from="1571451583089" duration="4315000" />
+      <workItem from="1572067154004" duration="2089000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -277,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571455751458</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="version alpha 0.1">
+      <created>1572067182712</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572067182712</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +318,7 @@
     <MESSAGE value="fix function name" />
     <MESSAGE value="add TableKit class" />
     <MESSAGE value="fix MySQLKit" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix MySQLKit" />
+    <MESSAGE value="version alpha 0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="version alpha 0.1" />
   </component>
 </project>
