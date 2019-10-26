@@ -125,7 +125,7 @@ class MySQLKit
      * @param $sql_code
      * @return array
      */
-    //返回查询数组
+    //return result array
     function search($sql_code)
     {
         $i = 0;
