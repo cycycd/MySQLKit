@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="version alpha 0.2" />
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="version alpha 0.2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +107,8 @@
       <workItem from="1570979973340" duration="653000" />
       <workItem from="1571451583089" duration="4315000" />
       <workItem from="1572067154004" duration="2474000" />
+      <workItem from="1572071386060" duration="1060000" />
+      <workItem from="1572399069112" duration="1327000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -294,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572071288700</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="version alpha 0.2">
+      <created>1572071420001</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1572071420001</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -99,15 +99,6 @@ class MySQLKit
             mysqli_query($this->SQL_LINK, "set names utf8");
         }
     }
-
-    /**
-     * @deprecated deprecated function
-     * */
-    public function update()
-    {
-        $this->connect();
-    }
-
     /**
      * search table and return first data
      * @param $sql_code
@@ -119,7 +110,6 @@ class MySQLKit
         $result = mysqli_fetch_array($raw);
         return $result;
     }
-
     /**
      * search table and return all data
      * @param $sql_code
@@ -177,5 +167,12 @@ class MySQLKit
     function createTable($tableName)
     {
         //TO-DO
+    }
+    /**
+     * @deprecated deprecated function
+     * */
+    public function update()
+    {
+        $this->connect();
     }
 }
