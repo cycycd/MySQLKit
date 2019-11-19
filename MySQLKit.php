@@ -169,7 +169,7 @@ class MySQLKit
         //TO-DO
     }
     /**
-     * @deprecated deprecated function
+     * @deprecated deprecated function replace with connect()
      * */
     public function update()
     {
