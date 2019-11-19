@@ -35,14 +35,14 @@ class MySQLKit
         return self::$instance;
     }
 
-    /**@deprecated
+    /**@deprecated replace by getInstance()
      * @return mixed
      */
     public function getLink()
     {
         return $this->SQL_LINK;
     }
-
+    //mean like function name
     public function getConnectStatus()
     {
         if (mysqli_get_connection_stats($this->SQL_LINK)) {

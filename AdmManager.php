@@ -4,7 +4,6 @@
  * User: cycycd
  * Date: 2018/9/12
  * Time: 16:25
- * @deprecated dep this class
  */
 class AdmManager
 {
@@ -12,15 +11,18 @@ class AdmManager
     private $connect_status;
     private $user,$pass,$host;
     //must use root account
+
     /**
      * TO-DO
-     *
+     * @param $host string localhost
+     * @param $name string sql username
+     * @param $pass string sql pass
      */
-    public function __construct()
+    public function __construct($host,$name,$pass)
     {
+
         if (func_num_args()==3) {
-            $args = func_get_args();
-            $this->SQL_LINK = mysqli_connect($args[0], $args[1], $args[2]);
+            $this->SQL_LINK = mysqli_connect($host, $name, $pass);
             if($this->SQL_LINK)
             {
                 $this->connect_status = true;
