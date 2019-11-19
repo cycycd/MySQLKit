@@ -120,7 +120,7 @@ class MySQLKit
     {
         $i = 0;
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
-        $result_all = array(array());
+        $result_all = array();
         if (mysqli_num_rows($raw)) {
             while ($result = mysqli_fetch_array($raw)) {
                 $result_all[$i] = $result;
