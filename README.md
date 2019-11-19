@@ -16,3 +16,26 @@ $sql->connect();
 
 注：所有用于设置参数的函数均返回this对象
 ## 函数
+### `execute($sql_code)`
+直接执行SQL语句，并返回直接执行结果。
+### `createDB($name,$setThis)`
+创建简单数据库，$name为数据库名，$setThis是可选参数，默认为true；$setThis的值表示创建数据库是否选择此数据库。
+### `search($sql_code)`
+搜索函数，参数为进行搜索操作的SQL语句，返回一个包含搜索结果的二维数组。
+### `searchSingle($sql_code)`
+单次搜索函数，参数为进行搜索操作的SQL语句，与`search()`函数不同的是，无论期望的搜索结果是一条还是多条，此函数只会返回单条结果（理论搜索结果有多个时，返回首条结果）。
+### `searchExist($sql_code)`
+存在搜索函数，参数为进行搜索操作的SQL语句，当搜索结果为一条或多条时，返回true，当结果是0条时，返回false。
+### `setDB($DBname)`
+选择数据库函数，参数为数据库名称，返回值为操作结果
+### 例子
+```php
+$sql=MySQLKit::getInstance();
+$sql->setHUP("localhost","root","")->connect();
+$sql->createDB("testDB");
+$sql->execute("create table if not exists test_table(
+    id int primary key auto_increment,
+    name char(20) not null,
+    card_id int(8) zerofill
+)");
+```

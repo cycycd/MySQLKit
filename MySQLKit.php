@@ -149,11 +149,10 @@ class MySQLKit
      * @param $DBName
      * @param bool $setThis
      * @return bool|mysqli_result
-     * @deprecated
      */
     function createDB($DBName, $setThis = true)
     {
-        $SQL_CODE = "CREATE DATABASE if not exists " . $DBName . " CHARACTER SET 'utf8'COLLATE 'utf8_general_ci';";
+        $SQL_CODE = "CREATE DATABASE if not exists " . $DBName;
         $res = mysqli_query($this->SQL_LINK, $SQL_CODE);
         if ($setThis) {
             $this->setDB($DBName);
