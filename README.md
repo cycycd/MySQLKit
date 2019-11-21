@@ -1,8 +1,11 @@
 # MySQLKit
 对PHP连接MySQL进行简单封装
 ## 初始化
-使用`getInstance()`进行单例模式初始化
-
+命名空间&实例获取
+```php
+use MySQLKit\MySQLKit;
+$sql=MySQLKit::getInstance()
+```
 如果是第一次初始化，获取到的实例可能并未进行任何连接，还需要在设置连接参数后进行连接
 ```php
 //获取实例
@@ -38,4 +41,9 @@ $sql->execute("create table if not exists test_table(
     name char(20) not null,
     card_id int(8) zerofill
 )");
+```
+## Table类
+```php
+use MySQLKit\Table;
+$table=new Table();
 ```
