@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="new Table Class">
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="finish table alpha 0.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Table.php" afterDir="false" />
@@ -118,7 +118,7 @@
       <workItem from="1574259223762" duration="118000" />
       <workItem from="1574259357919" duration="1015000" />
       <workItem from="1574302677815" duration="691000" />
-      <workItem from="1574312506449" duration="1654000" />
+      <workItem from="1574312506449" duration="3865000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -379,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574304268577</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add namespace">
+      <created>1574314393031</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1574314393031</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,6 +427,8 @@
     <MESSAGE value="version alpha 0.3" />
     <MESSAGE value="fix a bug, what makes a json encode error" />
     <MESSAGE value="new Table Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="new Table Class" />
+    <MESSAGE value="add namespace" />
+    <MESSAGE value="finish table alpha 0.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish table alpha 0.5" />
   </component>
 </project>

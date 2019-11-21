@@ -28,7 +28,7 @@ class MySQLKit
     }
 
     //Singleton Pattern
-    public static function getInstance(): MySQLKit
+    public static function getInstance(): self
     {
         if (!(self::$instance instanceof self)) {
             self::$instance = new self();
@@ -97,6 +97,7 @@ class MySQLKit
             //default utf-8
             mysqli_query($this->SQL_LINK, "set names utf8");
         }
+        return $this;
     }
     /**
      * search table and return first data
@@ -160,7 +161,7 @@ class MySQLKit
     }
     function createTable(Table $table)
     {
-        //TODO
+        $this->execute($table->toString());
     }
     function getTable($name):Table
     {
