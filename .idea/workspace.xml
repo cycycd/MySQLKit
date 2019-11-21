@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="fix a bug, what makes a json encode error">
+      <change afterPath="$PROJECT_DIR$/Table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdmManager.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +39,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../piart_server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -114,7 +113,11 @@
       <workItem from="1572535169657" duration="548000" />
       <workItem from="1573196438760" duration="770000" />
       <workItem from="1574139810116" duration="2738000" />
-      <workItem from="1574170305672" duration="3803000" />
+      <workItem from="1574170305672" duration="4901000" />
+      <workItem from="1574248619683" duration="4803000" />
+      <workItem from="1574259223762" duration="118000" />
+      <workItem from="1574259357919" duration="1015000" />
+      <workItem from="1574302677815" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -361,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574172512041</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix a bug, what makes a json encode error">
+      <created>1574174284599</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1574174284599</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

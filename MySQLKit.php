@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: cycycd
@@ -55,8 +56,7 @@ class MySQLKit
     //only use after connect
     public function setDB($db_name)
     {
-        if($this->SQL_LINK==null||!$this->getConnectStatus())
-        {
+        if ($this->SQL_LINK == null || !$this->getConnectStatus()) {
             return false;
         }
         $result = mysqli_select_db($this->SQL_LINK, $db_name);
@@ -81,7 +81,7 @@ class MySQLKit
         return $this;
     }
     //setHost+setUser+setPass
-    public function setHUP($host,$user,$pass)
+    public function setHUP($host, $user, $pass)
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
@@ -89,8 +89,7 @@ class MySQLKit
     //dis old connect start new connect
     public function connect()
     {
-        if($this->SQL_LINK!=null)
-        {
+        if ($this->SQL_LINK != null) {
             mysqli_close($this->SQL_LINK);
         }
         $this->SQL_LINK = mysqli_connect($this->HOST, $this->USER, $this->PASS);
