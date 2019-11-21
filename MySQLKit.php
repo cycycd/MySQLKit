@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: cycycd
@@ -8,6 +7,7 @@
  */
 //cancel the error reporting
 //error_reporting(E_ALL^E_NOTICE^E_WARNING);
+namespace MySQLKit;
 class MySQLKit
 {
     private $HOST, $USER, $PASS;
@@ -147,7 +147,7 @@ class MySQLKit
     /**
      * @param $DBName
      * @param bool $setThis
-     * @return bool|mysqli_result
+     * @return bool
      */
     function createDB($DBName, $setThis = true)
     {
@@ -158,13 +158,13 @@ class MySQLKit
         }
         return $res;
     }
-    /**
-     * @param $tableName
-     * @deprecated
-     */
-    function createTable($tableName)
+    function createTable(Table $table)
     {
-        //TO-DO
+        //TODO
+    }
+    function getTable($name):Table
+    {
+        //TODO
     }
     /**
      * @deprecated deprecated function replace with connect()
