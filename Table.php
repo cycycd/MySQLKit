@@ -2,17 +2,28 @@
 namespace MySQLKit;
 class Table
 {
+    //flag, if get from MySQLKit then writable=false
     private $writable=true;
     private $name;
     private $SQL_LINK;//TODO
     private $rowList=array();
+
+    /**
+     * Table constructor.
+     * @param $name
+     */
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+
     function setName($name): self
     {
         if($this->writable)
         {
             $this->name=$name;
         }
-        //array_push($this->rowList,new Table());
         return $this;
     }
     function getName()
@@ -43,7 +54,7 @@ class Table
             .implode(",",$this->rowList).")";
         return $sql_code;
     }
-    //main Class toString
+    //In MySQLKit toString
     public function toString()
     {
         if(!empty($this->name)&&!empty($this->rowList))
@@ -54,4 +65,3 @@ class Table
         }
     }
 }
-

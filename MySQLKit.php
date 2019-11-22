@@ -165,6 +165,14 @@ class MySQLKit
     }
     function getTable($name):Table
     {
+        if($this->searchExist("show tables like '$name'"))
+        {
+            $table_struct=$this->search("desc $name");
+        }
+        else
+        {
+            return null;
+        }
         //TODO
     }
     /**
