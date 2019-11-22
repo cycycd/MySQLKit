@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="morning work finished">
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="规范项目结构">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLKit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MySQLKit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TableKits/Row.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TableKits/Row.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +46,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project\WebRoot\MySQLKit\src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Project\WebRoot\MySQLKit" />
     </key>
@@ -120,7 +125,7 @@
       <workItem from="1574312506449" duration="4022000" />
       <workItem from="1574316558281" duration="2281000" />
       <workItem from="1574335801946" duration="358000" />
-      <workItem from="1574393631626" duration="4764000" />
+      <workItem from="1574393631626" duration="6285000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -409,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574398842800</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="规范项目结构">
+      <created>1574402823332</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1574402823332</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial project" />
     <MESSAGE value="add update method" />
     <MESSAGE value="add search method" />
     <MESSAGE value="add gitignore" />
@@ -454,6 +465,7 @@
     <MESSAGE value="finish table alpha 0.5" />
     <MESSAGE value="fix doc" />
     <MESSAGE value="morning work finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="morning work finished" />
+    <MESSAGE value="规范项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="规范项目结构" />
   </component>
 </project>

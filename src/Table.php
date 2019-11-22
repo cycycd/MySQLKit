@@ -1,5 +1,7 @@
 <?php
-namespace MySQLKit;
+namespace cycycd\MySQLKit;
+use cycycd\MySQLKit\TableKits\Row;
+require_once "TableKits/Row.php";
 class Table
 {
     //flag, if get from MySQLKit then writable=false
@@ -39,7 +41,9 @@ class Table
     }
     public function append(string $row):Table
     {
-        array_push($this->rowList,$row);
+        //TODO
+        $r=new Row();
+        array_push($this->rowList,$r);
         return $this;
     }
     public function count()

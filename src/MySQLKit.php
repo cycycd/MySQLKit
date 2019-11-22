@@ -7,7 +7,7 @@
  */
 //cancel the error reporting
 //error_reporting(E_ALL^E_NOTICE^E_WARNING);
-namespace MySQLKit;
+namespace cycycd\MySQLKit;
 class MySQLKit
 {
     private $HOST, $USER, $PASS;
