@@ -161,7 +161,7 @@ class MySQLKit
     }
     function createTable(Table $table)
     {
-        $this->execute($table->toString());
+        return $this->execute($table->toString());
     }
     function getTable($name):Table
     {
