@@ -46,7 +46,7 @@ class MySQLKit
     //mean like function name
     public function getConnectStatus()
     {
-        if (mysqli_get_connection_stats($this->SQL_LINK)) {
+        if ($this->SQL_LINK!=null&&mysqli_get_connection_stats($this->SQL_LINK)) {
             return true;
         } else {
             return false;
