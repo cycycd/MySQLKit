@@ -30,6 +30,7 @@ class MySQLKit
     //Singleton Pattern
     public static function getInstance(): self
     {
+        new Table("sss");
         if (!(self::$instance instanceof self)) {
             self::$instance = new self();
         }
@@ -161,13 +162,14 @@ class MySQLKit
     }
     function createTable(Table $table)
     {
-        return $this->execute($table->toString());
+        return $this->execute((string)$table);
     }
     function getTable($name):Table
     {
         if($this->searchExist("show tables like '$name'"))
         {
             $table_struct=$this->search("desc $name");
+            return new Table("test");
         }
         else
         {

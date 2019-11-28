@@ -1,15 +1,11 @@
 <?php
+
 namespace cycycd\MySQLKit;
-use cycycd\MySQLKit\TableKits\Row;
-require_once "TableKits/Row.php";
+require_once "Row.php";
 class Table
 {
-    //flag, if get from MySQLKit then writable=false
-    private $writable=true;
     private $name;
-    private $SQL_LINK;//TODO
-    private $rowList=array();
-
+    private $rowList;
     /**
      * Table constructor.
      * @param $name
@@ -22,49 +18,33 @@ class Table
 
     function setName($name): self
     {
-        if($this->writable)
-        {
-            $this->name=$name;
-        }
+        $this->name = $name;
         return $this;
     }
+
     function getName()
     {
         return $this->name;
     }
-    /**
-     * @param bool $writable
-     */
-    public function setWritable(bool $writable): void
+
+    public function append(string $row): Table
     {
-        $this->writable = $writable;
-    }
-    public function append(string $row):Table
-    {
-        //TODO
-        $r=new Row();
-        array_push($this->rowList,$r);
+        array_push($this->rowList, $row);
         return $this;
     }
+
     public function count()
     {
         return count($this->rowList);
     }
-    //auto toString
-    public function __toString()
-    {
-        // TODO: Implement __toString() method.
-        $sql_code="create table if not exists ".$this->name."("
-            .implode(",",$this->rowList).")";
-        return $sql_code;
-    }
-    //In MySQLKit toString
+    /**
+     * @deprecated type-cast will call __toSting function
+     */
     public function toString()
     {
-        if(!empty($this->name)&&!empty($this->rowList))
-        {
-            $sql_code="create table if not exists ".$this->name."("
-                .implode(",",$this->rowList).")";
+        if (!empty($this->name) && !empty($this->rowList)) {
+            $sql_code = "create table if not exists " . $this->name . "("
+                . implode(",", $this->rowList) . ")";
             return $sql_code;
         }
     }
