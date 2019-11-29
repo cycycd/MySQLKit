@@ -2,8 +2,10 @@
 
 namespace cycycd\MySQLKit;
 require_once "Row.php";
+
 class Table
 {
+    use MySQLKitCore;
     private $name;
     private $rowList;
     private $writable;
@@ -14,10 +16,10 @@ class Table
      * @param $name
      * @param bool $writable
      */
-    public function __construct($name,$writable=true)
+    public function __construct($name, $writable = true)
     {
-        $this->rowList=Array();
-        $this->writable=$writable;
+        $this->rowList = Array();
+        $this->writable = $writable;
         $this->name = $name;
     }
 
@@ -34,9 +36,8 @@ class Table
 
     public function append(string $row): Table
     {
-        if($this->writable)
-        {
-        array_push($this->rowList, $row);
+        if ($this->writable) {
+            array_push($this->rowList, $row);
         }
         return $this;
     }
@@ -45,6 +46,7 @@ class Table
     {
         return count($this->rowList);
     }
+
     /**
      * work for type-cast
      */
@@ -56,22 +58,33 @@ class Table
             return $sql_code;
         }
     }
-    public function initStruct($table_struct):void
+
+    public function initStruct($table_struct): void
     {
-        $count=count($table_struct);
-        for ($i=0;$i<$count;$i++)
-        {
-            array_push($this->rowList,new Row($table_struct[$i]));
+        $count = count($table_struct);
+        for ($i = 0; $i < $count; $i++) {
+            array_push($this->rowList, new Row($table_struct[$i]));
         }
     }
 
-    /**
-     * @param mixed $SQL_LINK
-     */
     public function setLink($SQL_LINK): void
     {
         $this->SQL_LINK = $SQL_LINK;
     }
 
+    /**
+     * @param $key array field name
+     * @return array
+     */
+    public function getValue(...$key)
+    {
+        foreach ($key as $item) {
+            if ($item == '*') {
+                $result=$this->search("SELECT * FROM $this->name");
+                return $result;
+            }
+        }
+        return $this->search("SELECT ".implode(",",$key)." FROM $this->name");
+    }
 
 }
