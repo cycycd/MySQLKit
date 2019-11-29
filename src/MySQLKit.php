@@ -169,7 +169,10 @@ class MySQLKit
         if($this->searchExist("show tables like '$name'"))
         {
             $table_struct=$this->search("desc $name");
-            return new Table("test");
+            $table=new Table($name,false);
+            $table->initStruct($table_struct);
+            $table->setLink($this->SQL_LINK);
+            return $table;
         }
         else
         {

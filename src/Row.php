@@ -14,13 +14,24 @@ class Row{
 
     /**
      * Row constructor.
+     * @param $singleRow
+     */
+    public function __construct($singleRow)
+    {
+        $this->field=$singleRow[0];
+        $this->type=$singleRow[1];
+        $this->nullable=$singleRow[2];
+        $this->key=$singleRow[3];
+        $this->default=$singleRow[4];
+        $this->extra=$singleRow[5];
+        print_r($singleRow);
+    }
+
+    /**
+     * Row constructor.
      * @param string $row
      */
-    public function __construct(string $row)
-    {
-        $rowArray=explode(" ",$row);
 
-    }
 
     /**
      * @return mixed
@@ -68,6 +79,17 @@ class Row{
     public function getExtra()
     {
         return $this->extra;
+    }
+
+    public function __toString()
+    {
+        $row=$this->field." "
+            .$this->type." "
+            .($this->nullable=="NO"?"NOT NULL ":" ")
+            .($this->key=="PRI"?"PRIMARY KEY ":" ")
+            .(!empty($this->default)?"DEFAULT $this->default ":" ")
+            .$this->extra;
+        return $row;
     }
 
 }

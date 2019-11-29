@@ -6,15 +6,20 @@ class Table
 {
     private $name;
     private $rowList;
+    private $writable;
+    private $SQL_LINK;
+
     /**
      * Table constructor.
      * @param $name
+     * @param bool $writable
      */
-    public function __construct($name)
+    public function __construct($name,$writable=true)
     {
+        $this->rowList=Array();
+        $this->writable=$writable;
         $this->name = $name;
     }
-
 
     function setName($name): self
     {
@@ -29,7 +34,10 @@ class Table
 
     public function append(string $row): Table
     {
+        if($this->writable)
+        {
         array_push($this->rowList, $row);
+        }
         return $this;
     }
 
@@ -38,9 +46,9 @@ class Table
         return count($this->rowList);
     }
     /**
-     * @deprecated type-cast will call __toSting function
+     * work for type-cast
      */
-    public function toString()
+    public function __toString()
     {
         if (!empty($this->name) && !empty($this->rowList)) {
             $sql_code = "create table if not exists " . $this->name . "("
@@ -48,4 +56,22 @@ class Table
             return $sql_code;
         }
     }
+    public function initStruct($table_struct):void
+    {
+        $count=count($table_struct);
+        for ($i=0;$i<$count;$i++)
+        {
+            array_push($this->rowList,new Row($table_struct[$i]));
+        }
+    }
+
+    /**
+     * @param mixed $SQL_LINK
+     */
+    public function setLink($SQL_LINK): void
+    {
+        $this->SQL_LINK = $SQL_LINK;
+    }
+
+
 }
