@@ -25,7 +25,9 @@ class Table
 
     function setTableName($tableName): self
     {
-        $this->tableName = $tableName;
+        if ($this->writable) {
+            $this->tableName = $tableName;
+        }
         return $this;
     }
 
@@ -42,7 +44,7 @@ class Table
         return $this;
     }
 
-    public function count()
+    private function count()
     {
         return count($this->rowList);
     }
@@ -78,7 +80,7 @@ class Table
      */
     public function getValue(...$key)
     {
-        if(in_array('*',$key))
+        if(empty($key)||in_array('*',$key))
         {
             $result=$this->search("SELECT * FROM $this->tableName");
             return $result;

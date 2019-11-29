@@ -31,7 +31,7 @@ $sql->connect();
 还可以通过`setHost()`,`setUser()`,`setPass()`分别进行设置（会覆盖旧的参数），设置后需要使用`connect()`进行重新连接，此时如果存在旧的连接，会断开旧的连接启用新参数的连接。
 
 注：所有用于设置参数的函数均返回this对象
-## 函数
+## MySQLKit常用方法
 ### `execute($sql_code)`
 直接执行SQL语句，并返回直接执行结果。
 ### `createDB($name,$setThis)`
@@ -44,7 +44,8 @@ $sql->connect();
 存在搜索函数，参数为进行搜索操作的SQL语句，当搜索结果为一条或多条时，返回true，当结果是0条时，返回false。
 ### `setDB($DBname)`
 选择数据库函数，参数为数据库名称，返回值为操作结果
-### 一个连接及创建数据库的完整例子
+
+一个连接及创建数据库的完整例子
 ```php
 $sql=MySQLKit::getInstance();
 if(!$sql->getConnectStatus())
@@ -59,8 +60,27 @@ if(!$sql->getConnectStatus())
 )");
 ```
 ## Table类
-Table类分为两种，在
+在MySQLKit中创建数据表，除了使用原生的`execute`方法之外，还可以使用封装的`createTable`方法，`createTable`方法需要借助Table类来实现，你需要确认在代码头部引入了Table类以及相关环境变量。
+例子
 ```php
 $table=new Table();
-$
+$table->setTableName("test_table");
+$table->append("id int primary key");
+$table->append("name char(10) not null");
+//$sql为MySQLKit实例
+$sql->createTable($table);
+//或
+$sql->createTable(new Table("test_table")
+    ->append("id int primary key")
+    ->append("name char(10) not null"));
+```
+注意，如果在创建数据表之前如果没有选择到数据库，创建操作并不会报错或者抛出异常。需要用方法返回值来确定创建是否成功。
+
+MySQLKit亦提供`getTable`方法，可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName`和`append`）因为获取到的实例仅用于增删改查等操作。
+
+例子
+```php
+$table=$sql->getTable("test_table");
+$res1=$table->getValue();
+$res2=$table->getValue("user_id","user_pass")
 ```
