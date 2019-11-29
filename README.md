@@ -1,7 +1,16 @@
 # MySQLKit
 对PHP连接MySQL进行简单封装
 ## 初始化
-命名空间&实例获取
+MySQLKitCore是核心组件，在使用其他组件之前都需要引入
+```php
+require_once "src/MySQLKitCore.php"
+```
+
+不要使用如下初始化方式
+```php
+$sql=new MySQLKit()
+```
+MySQLKit中已经默认实现了
 ```php
 use MySQLKit\MySQLKit;
 $sql=MySQLKit::getInstance()

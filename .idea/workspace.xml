@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="alpha 0.6">
-      <change afterPath="$PROJECT_DIR$/src/MySQLKitCore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="new feature: MySQLKitCore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MySQLKit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Row.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Row.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,20 +40,22 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../proj_donate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Project\WebRoot\MySQLKit" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project\WebRoot\MySQLKit" />
       <recent name="E:\Project\WebRoot\MySQLKit\src" />
       <recent name="E:\Project\WebRoot\MySQLKit\src\Table" />
       <recent name="E:\Project\WebRoot\MySQLKit\test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\WebRoot\MySQLKit\test" />
+      <recent name="E:\Project\WebRoot\MySQLKit" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -138,6 +139,7 @@
       <workItem from="1574934311011" duration="1164000" />
       <workItem from="1574935498539" duration="2098000" />
       <workItem from="1574988095532" duration="10263000" />
+      <workItem from="1575003139987" duration="4712000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1536557524637</created>
@@ -461,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574991985389</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="new feature: MySQLKitCore">
+      <created>1575003357476</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1575003357476</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix cons" />
     <MESSAGE value="add AdmManager class" />
     <MESSAGE value="add getConnectStatus function" />
     <MESSAGE value="add setPermission function" />
@@ -506,6 +514,7 @@
     <MESSAGE value="fix a bug" />
     <MESSAGE value="change framework" />
     <MESSAGE value="alpha 0.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha 0.6" />
+    <MESSAGE value="new feature: MySQLKitCore" />
+    <option name="LAST_COMMIT_MESSAGE" value="new feature: MySQLKitCore" />
   </component>
 </project>

@@ -78,11 +78,10 @@ class Table
      */
     public function getValue(...$key)
     {
-        foreach ($key as $item) {
-            if ($item == '*') {
-                $result=$this->search("SELECT * FROM $this->name");
-                return $result;
-            }
+        if(in_array('*',$key))
+        {
+            $result=$this->search("SELECT * FROM $this->name");
+            return $result;
         }
         return $this->search("SELECT ".implode(",",$key)." FROM $this->name");
     }
