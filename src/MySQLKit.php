@@ -38,17 +38,18 @@ class MySQLKit
         return self::$instance;
     }
 
-    /**@deprecated replace by getInstance()
-     * @return mixed
+    /**@return mixed
+     * @deprecated replace by getInstance()
      */
     public function getLink()
     {
         return $this->SQL_LINK;
     }
+
     //mean like function name
     public function getConnectStatus()
     {
-        if ($this->SQL_LINK!=null&&mysqli_get_connection_stats($this->SQL_LINK)) {
+        if ($this->SQL_LINK != null && mysqli_get_connection_stats($this->SQL_LINK)) {
             return true;
         } else {
             return false;
@@ -76,17 +77,20 @@ class MySQLKit
         $this->USER = $USER;
         return $this;
     }
+
     public function setPass($PASS)
     {
         $this->PASS = $PASS;
         return $this;
     }
+
     //setHost+setUser+setPass
     public function setHUP($host, $user, $pass)
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
+
     //dis old connect start new connect
     public function connect()
     {
@@ -100,7 +104,6 @@ class MySQLKit
         }
         return $this;
     }
-
 
     /**
      * @param $DBName
@@ -116,31 +119,40 @@ class MySQLKit
         }
         return $res;
     }
-    function createTable(Table $table)
+
+    function createTable(Table $table): bool
     {
+        if (!$this->checkDBExist()) {
+            return false;
+        }
         return $this->execute((string)$table);
     }
-    function getTable($name):Table
+
+    function getTable($name): Table
     {
-        if($this->searchExist("show tables like '$name'"))
-        {
-            $table_struct=$this->search("desc $name");
-            $table=new Table($name,false);
+        if ($this->searchExist("show tables like '$name'")) {
+            $table_struct = $this->search("desc $name");
+            $table = new Table($name, false);
             $table->initStruct($table_struct);
             $table->setLink($this->SQL_LINK);
             return $table;
-        }
-        else
-        {
+        } else {
             return null;
         }
         //TODO
     }
+
     /**
      * @deprecated deprecated function replace with connect()
      * */
     public function update()
     {
         $this->connect();
+    }
+
+    public function checkDBExist(): bool
+    {
+        $res = $this->searchSingle("select database()");
+        return !empty($res[0]);
     }
 }

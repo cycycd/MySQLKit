@@ -2,11 +2,11 @@
 
 namespace cycycd\MySQLKit;
 require_once "Row.php";
-
 class Table
 {
     use MySQLKitCore;
-    private $name;
+    private $DBName;
+    private $tableName;
     private $rowList;
     private $writable;
     private $SQL_LINK;
@@ -20,18 +20,18 @@ class Table
     {
         $this->rowList = Array();
         $this->writable = $writable;
-        $this->name = $name;
+        $this->tableName = $name;
     }
 
-    function setName($name): self
+    function setTableName($tableName): self
     {
-        $this->name = $name;
+        $this->tableName = $tableName;
         return $this;
     }
 
-    function getName()
+    function getTableName()
     {
-        return $this->name;
+        return $this->tableName;
     }
 
     public function append(string $row): Table
@@ -52,8 +52,8 @@ class Table
      */
     public function __toString()
     {
-        if (!empty($this->name) && !empty($this->rowList)) {
-            $sql_code = "create table if not exists " . $this->name . "("
+        if (!empty($this->tableName) && !empty($this->rowList)) {
+            $sql_code = "create table if not exists " . $this->tableName . "("
                 . implode(",", $this->rowList) . ")";
             return $sql_code;
         }
@@ -80,10 +80,20 @@ class Table
     {
         if(in_array('*',$key))
         {
-            $result=$this->search("SELECT * FROM $this->name");
+            $result=$this->search("SELECT * FROM $this->tableName");
             return $result;
         }
-        return $this->search("SELECT ".implode(",",$key)." FROM $this->name");
+        return $this->search("SELECT ".implode(",",$key)." FROM $this->tableName");
+    }
+
+    /**
+     * @param mixed $DBName
+     * @return Table
+     */
+    public function setDBName($DBName): Table
+    {
+        $this->DBName = $DBName;
+        return $this;
     }
 
 }
