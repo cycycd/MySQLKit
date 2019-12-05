@@ -5,11 +5,14 @@ require_once "Row.php";
 class Table
 {
     use MySQLKitCore;
-    private $DBName;
-    private $tableName;
-    private $rowList;
     private $writable;
     private $SQL_LINK;
+
+    //sql code
+    private $DBName;
+    private $tableName;
+    private $limit;
+    private $rowList;
 
     /**
      * Table constructor.
@@ -97,5 +100,7 @@ class Table
         $this->DBName = $DBName;
         return $this;
     }
-
+    public function limit(string $limit)
+    {
+    }
 }
