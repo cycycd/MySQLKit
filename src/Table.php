@@ -2,6 +2,7 @@
 
 namespace cycycd\MySQLKit;
 require_once "Row.php";
+
 class Table
 {
     use MySQLKitCore;
@@ -83,12 +84,24 @@ class Table
      */
     public function getValue(...$key)
     {
-        if(empty($key)||in_array('*',$key))
-        {
-            $result=$this->search("SELECT * FROM $this->tableName");
-            return $result;
+        $this->clearLimit();
+        $fieldArea = "";
+        $limitArea="";
+        if (empty($key) || in_array('*', $key)) {
+            $fieldArea = "*";
+        } else {
+            $fieldArea = implode(",", $key);
         }
-        return $this->search("SELECT ".implode(",",$key)." FROM $this->tableName");
+        if(!empty($this->limit))
+        {
+            $limitArea="WHERE ".$this->limit;
+        }
+        return $this->search("SELECT ".$fieldArea." FROM $this->tableName ".$limitArea);
+    }
+
+    private function clearLimit()
+    {
+        $this->limit = "";
     }
 
     /**
@@ -100,7 +113,9 @@ class Table
         $this->DBName = $DBName;
         return $this;
     }
+
     public function limit(string $limit)
     {
+        $this->limit = $limit;
     }
 }

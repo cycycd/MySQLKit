@@ -28,12 +28,6 @@ class Row{
     }
 
     /**
-     * Row constructor.
-     * @param string $row
-     */
-
-
-    /**
      * @return mixed
      */
     public function getField()
