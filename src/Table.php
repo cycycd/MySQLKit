@@ -59,9 +59,8 @@ class Table
     public function __toString()
     {
         if (!empty($this->tableName) && !empty($this->rowList)) {
-            $sql_code = "create table if not exists " . $this->tableName . "("
+            return "create table if not exists " . $this->tableName . "("
                 . implode(",", $this->rowList) . ")";
-            return $sql_code;
         }
     }
 
