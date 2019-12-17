@@ -128,6 +128,16 @@ class MySQLKit
         return $this->execute((string)$table);
     }
 
+    /**
+     * warning: use this function carefully
+     * @param $tableName
+     * @return bool
+     */
+    function deleteTable($tableName):bool
+    {
+        return $this->execute("drop table if exists ".$tableName);
+    }
+
     function getTable($name): Table
     {
         if ($this->searchExist("show tables like '$name'")) {
