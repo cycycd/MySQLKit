@@ -72,11 +72,14 @@ $sql->createTable($table);
 ```
 注意，如果在创建数据表之前如果没有选择到数据库，创建操作并不会报错或者抛出异常。需要用方法返回值来确定创建是否成功。
 
-MySQLKit亦提供`getTable`方法，可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName`和`append`）因为获取到的实例仅用于增删改查等操作。
+MySQLKit亦提供`getTable`方法
 
-例子
 ```php
 $table=$sql->getTable("test_table");
+```
+可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName`和`append`）因为获取到的实例仅用于增删改查等操作，例如使用`getValue()`方法实现查找：
+```php
 $res1=$table->getValue();
 $res2=$table->getValue("user_id","user_pass");
 ```
+
