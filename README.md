@@ -3,21 +3,21 @@
 ## 初始化
 MySQLKitCore是MySQLKit中的核心组件，在使用其他组件之前都需要引入
 ```php
-require_once "src/MySQLKitCore.php"
+require_once "src/MySQLKitCore.php";
 ```
 引入主要组件以及命名空间
 ```php
-require_once "src/MySQLKit.php"
-require_once "src/Table.php"
+require_once "src/MySQLKit.php";
+require_once "src/Table.php";
 use cycycd\MySQLKit\{MySQLKit,Table};
 ```
 注意！不要使用如下初始化方式
 ```php
-$sql=new MySQLKit()
+$sql=new MySQLKit();
 ```
 MySQLKit中已经默认实现了单例模式
 ```php
-$sql=MySQLKit::getInstance()
+$sql=MySQLKit::getInstance();
 ```
 如果是第一次初始化，获取到的实例可能并未进行任何连接，还需要在设置连接参数后进行连接
 ```php
@@ -56,8 +56,8 @@ if(!$sql->getConnectStatus())
         id int primary key auto_increment,
         name char(20) not null,
         card_id int(8) zerofill
+        )");
 }
-)");
 ```
 ## Table类
 在MySQLKit中创建数据表，除了使用原生的`execute`方法之外，还可以使用封装的`createTable`方法，`createTable`方法需要借助Table类来实现，你需要确认在代码头部引入了Table类以及相关环境变量。
@@ -67,12 +67,8 @@ $table=new Table();
 $table->setTableName("test_table");
 $table->append("id int primary key");
 $table->append("name char(10) not null");
-//$sql为MySQLKit实例
+$sql=MySQLKit::getInstance();
 $sql->createTable($table);
-//或
-$sql->createTable(new Table("test_table")
-    ->append("id int primary key")
-    ->append("name char(10) not null"));
 ```
 注意，如果在创建数据表之前如果没有选择到数据库，创建操作并不会报错或者抛出异常。需要用方法返回值来确定创建是否成功。
 
@@ -82,5 +78,5 @@ MySQLKit亦提供`getTable`方法，可以根据表名获取到一个Table实例
 ```php
 $table=$sql->getTable("test_table");
 $res1=$table->getValue();
-$res2=$table->getValue("user_id","user_pass")
+$res2=$table->getValue("user_id","user_pass");
 ```
