@@ -24,13 +24,12 @@ class Row{
         $this->key=$singleRow[3];
         $this->default=$singleRow[4];
         $this->extra=$singleRow[5];
-        //print_r($singleRow);
     }
 
     /**
      * @return mixed
      */
-    public function getField()
+    public function getField():string
     {
         return $this->field;
     }
@@ -38,7 +37,7 @@ class Row{
     /**
      * @return mixed
      */
-    public function getType()
+    public function getType():string
     {
         return $this->type;
     }
@@ -46,7 +45,7 @@ class Row{
     /**
      * @return mixed
      */
-    public function getNullable()
+    public function getNullable():string
     {
         return $this->nullable;
     }
@@ -54,7 +53,7 @@ class Row{
     /**
      * @return mixed
      */
-    public function getKey()
+    public function getKey():string
     {
         return $this->key;
     }
@@ -62,7 +61,7 @@ class Row{
     /**
      * @return mixed
      */
-    public function getDefault()
+    public function getDefault():string
     {
         return $this->default;
     }
@@ -70,7 +69,7 @@ class Row{
     /**
      * @return mixed
      */
-    public function getExtra()
+    public function getExtra():string
     {
         return $this->extra;
     }
