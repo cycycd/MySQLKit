@@ -77,7 +77,9 @@ MySQLKit亦提供`getTable`方法
 ```php
 $table=$sql->getTable("test_table");
 ```
-可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName`和`append`）因为获取到的实例仅用于增删改查等操作，例如使用`getValue()`方法实现查找：
+可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName()`和`append()`）因为获取到的实例相对于主类来说是只读的。
+
+使用`getValue()`方法实现查找：
 ```php
 $res1=$table->getValue();
 $res2=$table->getValue("user_id","user_pass");
