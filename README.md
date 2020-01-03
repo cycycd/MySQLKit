@@ -11,13 +11,11 @@ require_once "src/MySQLKit.php";
 require_once "src/Table.php";
 use cycycd\MySQLKit\{MySQLKit,Table};
 ```
-注意！不要使用如下初始化方式
+注意！不要使用如下初始化方式，MySQLKit中已经默认实现了单例模式
+
 ```php
-$sql=new MySQLKit();
-```
-MySQLKit中已经默认实现了单例模式
-```php
-$sql=MySQLKit::getInstance();
+$sql=new MySQLKit(); //×
+$sql=MySQLKit::getInstance(); //√
 ```
 如果是第一次初始化，获取到的实例可能并未进行任何连接，还需要在设置连接参数后进行连接
 ```php
@@ -70,7 +68,7 @@ $table->append("name char(10) not null");
 $sql=MySQLKit::getInstance();
 $sql->createTable($table);
 ```
-注意，如果在创建数据表之前如果没有选择到数据库，创建操作并不会报错或者抛出异常。需要用方法返回值来确定创建是否成功。
+如果在创建数据表之前如果没有选择到数据库，创建操作并不会报错或者抛出异常。需要用方法返回值来确定创建是否成功。
 
 MySQLKit亦提供`getTable`方法
 
