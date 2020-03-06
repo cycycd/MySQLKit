@@ -28,25 +28,20 @@ class MySQLKit
         //cancel clone method
     }
 
-    //Singleton Pattern
+    /**
+     * get area
+     */
     public static function getInstance(): self
     {
-        new Table("sss");
         if (!(self::$instance instanceof self)) {
             self::$instance = new self();
         }
         return self::$instance;
     }
-
-    /**@return mixed
-     * @deprecated replace by getInstance()
-     */
     public function getLink()
     {
         return $this->SQL_LINK;
     }
-
-    //mean like function name
     public function getConnectStatus()
     {
         if ($this->SQL_LINK != null && mysqli_get_connection_stats($this->SQL_LINK)) {
@@ -55,8 +50,23 @@ class MySQLKit
             return false;
         }
     }
+    function getTable($name): Table
+    {
+        if ($this->searchExist("show tables like '$name'")) {
+            //get table information
+            $table_struct = $this->search("desc $name");
+            $table = new Table($name, false);
+            $table->initStruct($table_struct);
+            $table->setLink($this->SQL_LINK);
+            return $table;
+        } else {
+            return null;
+        }
+    }
 
-    //only use after connect
+    /**
+     * set area
+     */
     public function setDB($db_name)
     {
         if ($this->SQL_LINK == null || !$this->getConnectStatus()) {
@@ -65,33 +75,28 @@ class MySQLKit
         $result = mysqli_select_db($this->SQL_LINK, $db_name);
         return $result;
     }
-
     public function setHost($HOST)
     {
         $this->HOST = $HOST;
         return $this;
     }
-
     public function setUser($USER)
     {
         $this->USER = $USER;
         return $this;
     }
-
     public function setPass($PASS)
     {
         $this->PASS = $PASS;
         return $this;
     }
-
-    //setHost+setUser+setPass
     public function setHUP($host, $user, $pass)
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
 
-    //dis old connect start new connect
+    //close old connect start new connect
     public function connect()
     {
         if ($this->SQL_LINK != null) {
@@ -138,22 +143,8 @@ class MySQLKit
         return $this->execute("drop table if exists ".$tableName);
     }
 
-    function getTable($name): Table
-    {
-        if ($this->searchExist("show tables like '$name'")) {
-            $table_struct = $this->search("desc $name");
-            $table = new Table($name, false);
-            $table->initStruct($table_struct);
-            $table->setLink($this->SQL_LINK);
-            return $table;
-        } else {
-            return null;
-        }
-        //TODO
-    }
-
     /**
-     * @deprecated deprecated function replace with connect()
+     * @deprecated deprecated function & replace with connect()
      * */
     public function update()
     {
