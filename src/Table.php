@@ -26,20 +26,6 @@ class Table
         $this->writable = $writable;
         $this->tableName = $name;
     }
-
-    function setTableName($tableName): self
-    {
-        if ($this->writable) {
-            $this->tableName = $tableName;
-        }
-        return $this;
-    }
-
-    function getTableName()
-    {
-        return $this->tableName;
-    }
-
     public function append(string $row): Table
     {
         if ($this->writable) {
@@ -64,7 +50,7 @@ class Table
         }
     }
 
-    public function initStruct($table_struct): void
+    public function initStruct(array $table_struct): void
     {
         $count = count($table_struct);
         for ($i = 0; $i < $count; $i++) {
@@ -72,14 +58,28 @@ class Table
         }
     }
 
+    /**
+     * set area
+     */
     public function setLink($SQL_LINK): void
     {
         $this->SQL_LINK = $SQL_LINK;
     }
+    public function setDBName($DBName): Table
+    {
+        $this->DBName = $DBName;
+        return $this;
+    }
+    function setTableName($tableName): self
+    {
+        if ($this->writable) {
+            $this->tableName = $tableName;
+        }
+        return $this;
+    }
 
     /**
-     * @param $key array field name
-     * @return array
+     * get area
      */
     public function getValue(...$key)
     {
@@ -97,22 +97,18 @@ class Table
         }
         return $this->search("SELECT ".$fieldArea." FROM $this->tableName ".$limitArea);
     }
+    function getTableName()
+    {
+        return $this->tableName;
+    }
 
+    /**
+     * limit area
+     */
     private function clearLimit()
     {
         $this->limit = "";
     }
-
-    /**
-     * @param mixed $DBName
-     * @return Table
-     */
-    public function setDBName($DBName): Table
-    {
-        $this->DBName = $DBName;
-        return $this;
-    }
-
     public function limit(string $limit)
     {
         $this->limit = $limit;
