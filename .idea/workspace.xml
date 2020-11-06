@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="fix struct">
-      <change afterPath="$PROJECT_DIR$/main.test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MySQLKit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MySQLKit.php" afterDir="false" />
-    </list>
+    <list default="true" id="ed5548b8-c655-47ae-9db4-c2a1e71dd7f3" name="Default" comment="fix struct" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +65,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -181,14 +177,7 @@
       <workItem from="1583468108163" duration="2903000" />
       <workItem from="1583486999109" duration="1016000" />
       <workItem from="1604648102510" duration="91000" />
-      <workItem from="1604648199755" duration="1944000" />
-    </task>
-    <task id="LOCAL-00012" summary="add AdmManager class">
-      <created>1536741477232</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1536741477232</updated>
+      <workItem from="1604648199755" duration="2312000" />
     </task>
     <task id="LOCAL-00013" summary="add AdmManager class">
       <created>1536757126396</created>
@@ -526,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583467267745</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="fix struct">
+      <created>1604650378902</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1604650378902</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,9 +577,13 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="776" y="447" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1604648293163" />
-    <state x="461" y="156" key="SettingsEditor" timestamp="1604648268129">
+    <state x="461" y="156" key="SettingsEditor" timestamp="1604650512721">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="156" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1604648268129" />
+    <state x="461" y="156" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1604650512721" />
+    <state x="162" y="257" key="Vcs.Push.Dialog.v2" timestamp="1604650382089">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="162" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1604650382089" />
   </component>
 </project>
