@@ -8,7 +8,7 @@
 //cancel the error reporting
 //error_reporting(E_ALL^E_NOTICE^E_WARNING);
 namespace cycycd\MySQLKit;
-
+require_once "MySQLKitCore.php";
 class MySQLKit
 {
     use MySQLKitCore;
@@ -60,7 +60,7 @@ class MySQLKit
             $table->setLink($this->SQL_LINK);
             return $table;
         } else {
-            return null;
+            throw new \mysqli_sql_exception("111111111");
         }
     }
 
@@ -151,6 +151,9 @@ class MySQLKit
         $this->connect();
     }
 
+    /**
+     * to be deprecated
+     */
     public function checkDBExist(): bool
     {
         $res = $this->searchSingle("select database()");
