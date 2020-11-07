@@ -55,6 +55,7 @@ class MySQLKit
     }
 
     /**
+     * get table from db
      * @param $name
      * @return Table
      * @throws Exception\NullTableException
