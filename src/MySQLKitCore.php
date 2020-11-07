@@ -8,7 +8,7 @@ trait MySQLKitCore
      * @param $sql_code
      * @return array
      */
-    function search($sql_code)
+    function query($sql_code)
     {
         $i = 0;
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
@@ -26,15 +26,15 @@ trait MySQLKitCore
      * @param $sql_code
      * @return array|null
      */
-    function searchSingle($sql_code)
+    function querySingle($sql_code)
     {
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
         $result = mysqli_fetch_array($raw);
         return $result;
     }
-    function searchExist($sql_code)
+    function queryExist($sql_code)
     {
-        $res = $this->searchSingle($sql_code);
+        $res = $this->querySingle($sql_code);
         if (empty($res)) {
             return false;
         } else {
