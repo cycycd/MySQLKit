@@ -81,22 +81,7 @@ class Table
     /**
      * get area
      */
-    public function getValue(...$key)
-    {
-        $this->clearLimit();
-        $fieldArea = "";
-        $limitArea="";
-        if (empty($key) || in_array('*', $key)) {
-            $fieldArea = "*";
-        } else {
-            $fieldArea = implode(",", $key);
-        }
-        if(!empty($this->limit))
-        {
-            $limitArea="WHERE ".$this->limit;
-        }
-        return $this->search("SELECT ".$fieldArea." FROM $this->tableName ".$limitArea);
-    }
+
     function getTableName()
     {
         return $this->tableName;
@@ -109,8 +94,32 @@ class Table
     {
         $this->limit = "";
     }
+
     public function limit(string $limit)
     {
         $this->limit = $limit;
+        return $this;
+    }
+    /**
+     * curd area
+     */
+    public function queryData(...$key)
+    {
+        //only effect once curd
+        $fieldArea = "";
+        if (empty($key) || in_array('*', $key)) {
+            $fieldArea = "*";
+        } else {
+            $fieldArea = implode(",", $key);
+        }
+        $curd_code="SELECT ".$fieldArea." FROM $this->tableName ".(empty($this->limit)?"":" where ".$this->limit);
+        $this->clearLimit();
+        echo $curd_code;
+        return $this->search($curd_code);
+    }
+    public function insertData()
+    {
+        //TO-DO
+        //$curd_code="INSERT INTO ".$this->tableName
     }
 }

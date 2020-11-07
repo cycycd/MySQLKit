@@ -78,9 +78,11 @@ $table=$sql->getTable("test_table");
 可以根据表名获取到一个Table实例，在通过该方法获取到的Table实例中，一些方法并不可用（例如`setTableName()`和`append()`）因为获取到的实例相对于主类来说是只读的。
 
 
-使用`getValue()`方法实现查找：
+使用`queryData()`方法实现查找：
 ```php
-$res1=$table->getValue();
-$res2=$table->getValue("user_id","user_pass");
+$res1=$table->queryData()();
+$res2=$table->queryData()("user_id","user_pass");
+$res3=$table->limit("user_id<2")->queryData("user_id","user_pass");
 ```
+在使用`queryData()`查找之前，可以如上第三条程序语句所示，通过`limit()`方法为查找添加限制，需要注意的是，添加的限制只对下一次查询有作用
 
