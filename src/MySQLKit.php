@@ -60,7 +60,7 @@ class MySQLKit
             $table->setLink($this->SQL_LINK);
             return $table;
         } else {
-            return null;
+            return new Table();
         }
     }
 
