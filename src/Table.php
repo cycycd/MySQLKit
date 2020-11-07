@@ -115,7 +115,7 @@ class Table
         $curd_code="SELECT ".$fieldArea." FROM $this->tableName ".(empty($this->limit)?"":" where ".$this->limit);
         $this->clearLimit();
         echo $curd_code;
-        return $this->search($curd_code);
+        return $this->query($curd_code);
     }
     public function insertData()
     {

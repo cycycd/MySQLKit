@@ -1,4 +1,4 @@
 <?php
-class NullDatabaseException extends Exception{
-
+namespace cycycd\MySQLKit\Exception;
+class NullDatabaseException extends \Exception {
 }

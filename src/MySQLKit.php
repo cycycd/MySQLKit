@@ -8,6 +8,9 @@
 //cancel the error reporting
 //error_reporting(E_ALL^E_NOTICE^E_WARNING);
 namespace cycycd\MySQLKit;
+
+require_once "Exception/NullTableException.php";
+require_once "Exception/NullDatabaseException.php";
 require_once "MySQLKitCore.php";
 class MySQLKit
 {
@@ -50,22 +53,30 @@ class MySQLKit
             return false;
         }
     }
+
+    /**
+     * @param $name
+     * @return Table
+     * @throws Exception\NullTableException
+     */
     function getTable($name): Table
     {
-        if ($this->searchExist("show tables like '$name'")) {
+        if ($this->queryExist("show tables like '$name'")) {
             //get table information
-            $table_struct = $this->search("desc $name");
+            $table_struct = $this->query("desc $name");
             $table = new Table($name, false);
             $table->initStruct($table_struct);
             $table->setLink($this->SQL_LINK);
             return $table;
         } else {
-            throw new \mysqli_sql_exception("111111111");
+            throw new Exception\NullTableException("null table target");
         }
     }
 
+
     /**
      * set area
+     * @throws Exception\NullDatabaseException
      */
     public function setDB($db_name)
     {
@@ -73,6 +84,10 @@ class MySQLKit
             return false;
         }
         $result = mysqli_select_db($this->SQL_LINK, $db_name);
+        if(!$result)
+        {
+            throw new Exception\NullDatabaseException("no database");
+        }
         return $result;
     }
     public function setHost($HOST)
@@ -156,7 +171,7 @@ class MySQLKit
      */
     public function checkDBExist(): bool
     {
-        $res = $this->searchSingle("select database()");
+        $res = $this->querySingle("select database()");
         return !empty($res[0]);
     }
 }
