@@ -12,9 +12,8 @@ namespace cycycd\MySQLKit;
 require_once "Exception/NullTableException.php";
 require_once "Exception/NullDatabaseException.php";
 require_once "MySQLKitCore.php";
-class MySQLKit
+class MySQLKit extends MySQLKitCore
 {
-    use MySQLKitCore;
     private $HOST, $USER, $PASS;
     private static $instance;
 
@@ -51,26 +50,6 @@ class MySQLKit
             return true;
         } else {
             return false;
-        }
-    }
-
-    /**
-     * get table from db
-     * @param $name
-     * @return Table
-     * @throws Exception\NullTableException
-     */
-    function getTable($name): Table
-    {
-        if ($this->queryExist("show tables like '$name'")) {
-            //get table information
-            $table_struct = $this->query("desc $name");
-            $table = new Table($name, false);
-            $table->initStruct($table_struct);
-            $table->setLink($this->SQL_LINK);
-            return $table;
-        } else {
-            throw new Exception\NullTableException("null table target");
         }
     }
 
@@ -157,6 +136,25 @@ class MySQLKit
     function deleteTable($tableName):bool
     {
         return $this->execute("drop table if exists ".$tableName);
+    }
+    /**
+     * get table from db
+     * @param $name
+     * @return Table
+     * @throws Exception\NullTableException
+     */
+    function getTable($name): Table
+    {
+        if ($this->queryExist("show tables like '$name'")) {
+            //get table information
+            $table_struct = $this->query("desc $name");
+            $table = new Table($name, false);
+            $table->initStruct($table_struct);
+            $table->setInstance($this);
+            return $table;
+        } else {
+            throw new Exception\NullTableException("null table target");
+        }
     }
 
     /**

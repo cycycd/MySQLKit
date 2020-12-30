@@ -5,12 +5,10 @@ require_once "Row.php";
 
 class Table
 {
-    use MySQLKitCore;
     private $writable;
-    private $SQL_LINK;
+    private $SQLInstance;
 
     //sql code
-    private $DBName;
     private $tableName;
     private $limit;
     private $rowList;
@@ -50,20 +48,21 @@ class Table
         }
     }
 
-    public function initStruct(array $table_struct): void
+    public function initStruct(array $table_struct): Table
     {
         $count = count($table_struct);
         for ($i = 0; $i < $count; $i++) {
             array_push($this->rowList, new Row($table_struct[$i]));
         }
+        return $this;
     }
 
     /**
      * set area
      */
-    public function setLink($SQL_LINK): void
+    public function setInstance(MySQLKit $SQLInstance): void
     {
-        $this->SQL_LINK = $SQL_LINK;
+        $this->SQLInstance=$SQLInstance;
     }
     public function setDBName($DBName): Table
     {

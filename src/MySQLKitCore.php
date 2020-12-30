@@ -1,8 +1,8 @@
 <?php
 namespace cycycd\MySQLKit;
-trait MySQLKitCore
+class MySQLKitCore
 {
-    private $SQL_LINK;
+    protected $SQL_LINK;
     /**
      * search table and return all data
      * @param $sql_code
@@ -29,8 +29,7 @@ trait MySQLKitCore
     function querySingle($sql_code)
     {
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
-        $result = mysqli_fetch_array($raw);
-        return $result;
+        return mysqli_fetch_array($raw);
     }
     function queryExist($sql_code)
     {
