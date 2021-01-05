@@ -3,10 +3,9 @@
 namespace cycycd\MySQLKit;
 require_once "Row.php";
 
-class Table
+class Table extends MySQLKitCore
 {
     private $writable;
-    private $SQLInstance;
 
     //sql code
     private $tableName;
@@ -24,6 +23,7 @@ class Table
         $this->writable = $writable;
         $this->tableName = $name;
     }
+
     public function append(string $row): Table
     {
         if ($this->writable) {
@@ -32,15 +32,10 @@ class Table
         return $this;
     }
 
-    private function count()
-    {
-        return count($this->rowList);
-    }
-
     /**
      * work for type-cast
      */
-    public function __toString()
+    public function __toString(): string
     {
         if (!empty($this->tableName) && !empty($this->rowList)) {
             return "create table if not exists " . $this->tableName . "("
@@ -60,15 +55,6 @@ class Table
     /**
      * set area
      */
-    public function setInstance(MySQLKit $SQLInstance): void
-    {
-        $this->SQLInstance=$SQLInstance;
-    }
-    public function setDBName($DBName): Table
-    {
-        $this->DBName = $DBName;
-        return $this;
-    }
     function setTableName($tableName): self
     {
         if ($this->writable) {

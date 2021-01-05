@@ -44,7 +44,7 @@ class MySQLKit extends MySQLKitCore
     {
         return $this->SQL_LINK;
     }
-    public function getConnectStatus()
+    public function getConnectStatus(): bool
     {
         if ($this->SQL_LINK != null && mysqli_get_connection_stats($this->SQL_LINK)) {
             return true;
@@ -58,7 +58,7 @@ class MySQLKit extends MySQLKitCore
      * set area
      * @throws Exception\NullDatabaseException
      */
-    public function setDB($db_name)
+    public function setDB($db_name): bool
     {
         if ($this->SQL_LINK == null || !$this->getConnectStatus()) {
             return false;
@@ -70,29 +70,29 @@ class MySQLKit extends MySQLKitCore
         }
         return $result;
     }
-    public function setHost($HOST)
+    public function setHost($HOST): MySQLKit
     {
         $this->HOST = $HOST;
         return $this;
     }
-    public function setUser($USER)
+    public function setUser($USER): MySQLKit
     {
         $this->USER = $USER;
         return $this;
     }
-    public function setPass($PASS)
+    public function setPass($PASS): MySQLKit
     {
         $this->PASS = $PASS;
         return $this;
     }
-    public function setHUP($host, $user, $pass)
+    public function setHUP($host, $user, $pass): MySQLKit
     {
         $this->setHost($host)->setUser($user)->setPass($pass);
         return $this;
     }
 
     //close old connect start new connect
-    public function connect()
+    public function connect(): MySQLKit
     {
         if ($this->SQL_LINK != null) {
             mysqli_close($this->SQL_LINK);
@@ -110,7 +110,7 @@ class MySQLKit extends MySQLKitCore
      * @param bool $setThis
      * @return bool
      */
-    function createDB($DBName, $setThis = true)
+    function createDB($DBName, $setThis = true): bool
     {
         $SQL_CODE = "CREATE DATABASE if not exists " . $DBName;
         $res = mysqli_query($this->SQL_LINK, $SQL_CODE);
@@ -150,7 +150,7 @@ class MySQLKit extends MySQLKitCore
             $table_struct = $this->query("desc $name");
             $table = new Table($name, false);
             $table->initStruct($table_struct);
-            $table->setInstance($this);
+            $table->setLink($this->getLink());
             return $table;
         } else {
             throw new Exception\NullTableException("null table target");

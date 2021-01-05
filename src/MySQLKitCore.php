@@ -8,7 +8,7 @@ class MySQLKitCore
      * @param $sql_code
      * @return array
      */
-    function query($sql_code)
+    function query($sql_code): array
     {
         $i = 0;
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
@@ -26,12 +26,12 @@ class MySQLKitCore
      * @param $sql_code
      * @return array|null
      */
-    function querySingle($sql_code)
+    function querySingle($sql_code): ?array
     {
         $raw = mysqli_query($this->SQL_LINK, $sql_code);
         return mysqli_fetch_array($raw);
     }
-    function queryExist($sql_code)
+    function queryExist($sql_code): bool
     {
         $res = $this->querySingle($sql_code);
         if (empty($res)) {
@@ -44,5 +44,13 @@ class MySQLKitCore
     function execute($sql_code)
     {
         return mysqli_query($this->SQL_LINK, $sql_code);
+    }
+    function setLink($link)
+    {
+        $this->SQL_LINK=$link;
+    }
+    function getLink($link)
+    {
+        return $this->SQL_LINK;
     }
 }
